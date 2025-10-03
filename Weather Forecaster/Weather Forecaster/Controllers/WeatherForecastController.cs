@@ -47,5 +47,11 @@ namespace Weather_Forecaster.Controllers
                 _ => Summaries[9]         // Scorching
             };
         }
+
+        public string GetSummaryByTemperatureFahrenheit(int temperatureFahrenheit)
+        {
+            int temperatureCelsius = (int)((temperatureFahrenheit - 32) * 0.5556);
+            return GetSummaryByTemperature(temperatureCelsius);
+        }
     }
 }
