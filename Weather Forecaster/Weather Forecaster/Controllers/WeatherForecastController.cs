@@ -30,5 +30,22 @@ namespace Weather_Forecaster.Controllers
                 })
             );
         }
+
+        public string GetSummaryByTemperature(int temperatureCelsius)
+        {
+            return temperatureCelsius switch
+            {
+                < 0 => Summaries[0],      // Freezing
+                < 6 => Summaries[1],      // Bracing
+                < 11 => Summaries[2],     // Chilly
+                < 16 => Summaries[3],     // Cool
+                < 21 => Summaries[4],     // Mild
+                < 26 => Summaries[5],     // Warm
+                < 31 => Summaries[6],     // Balmy
+                < 36 => Summaries[7],     // Hot
+                < 41 => Summaries[8],     // Sweltering
+                _ => Summaries[9]         // Scorching
+            };
+        }
     }
 }
